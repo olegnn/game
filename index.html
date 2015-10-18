@@ -3,7 +3,13 @@
     <meta charset="utf-8">
     <script src = "main.min.js"></script>
     <style>
+      body{
+        width : 300px;
+        height : 200px;
+        zoom : 1.5;
+      }
       td{
+        font-size : 200%;
         cursor:pointer;
         border : 3px solid blue;
       }
@@ -18,7 +24,7 @@
   </head>
   <body>
     <a> Размер поля : </a>
-    <input id = "size" oninput = "window.onload()" value = "4" />
+    <input id = "size" oninput = "window.onload()" style = "width : 50px" value = "4" />
   </br>
     <a id = "player"> </a>
   </br>
