@@ -11,6 +11,7 @@ class Game
 
   selectCell : (obj) ~>
     if +obj.target.innerText then return alert "Эту клетку нельзя выбрать"
+    obj.target.className = \start-cell
     if @startPos?
       if @fillCells(@startPos,  +obj.target.id) then @checkGameOver!
     else
@@ -32,7 +33,7 @@ class Game
         @data[j] = 1
         element = document.getElementById(j)
         element.innerText = 1
-        element.className = \touched
+        element.className = \touched-cell
 
     true
 
