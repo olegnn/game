@@ -11,11 +11,11 @@ class Game
 
   selectCell : (obj) ~>
     if +obj.target.innerText then return alert "Эту клетку нельзя выбрать"
-    obj.target.className = \start-cell
     if @startPos?
       if @fillCells(@startPos,  +obj.target.id) then @checkGameOver!
     else
       @startPos = +obj.target.id
+      obj.target.className = \start-cell
       @stateElement.innerText = "Выберите конечную клетку"
 
   fillCells : (startPos, endPos) ~>
