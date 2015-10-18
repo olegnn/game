@@ -1,5 +1,5 @@
 class Game
-  #+document.getElementById(\size ).value
+
   (@size = 4) ->
     @data = [0] * @size * @size
     @currentPlayer = 2
@@ -12,20 +12,18 @@ class Game
   selectCell : (obj) ~>
     if +obj.target.innerText then return alert "Эту клетку нельзя выбрать"
     if @startPos?
-      @fillCells(@startPos,  +obj.target.id)
-      @checkGameOver!
+      if @fillCells(@startPos,  +obj.target.id) then @checkGameOver!
     else
       @startPos = +obj.target.id
       @stateElement.innerText = "Выберите конечную клетку"
 
   fillCells : (startPos, endPos) ~>
-    console.log startPos
     if startPos > endPos
       startPos = [endPos, endPos = startPos][0]
-    isColumn = endPos - startPos >= @size
+    isColumn = endPos - startPos >= @size or (endPos / @size .|. 0) isnt (startPos / @size .|. 0)
 
     if isColumn and (endPos - startPos) % @size
-      return alert "Выберите конечную клетку на одной горизонтали 
+      return alert "Выберите конечную клетку на одной горизонтали
                     или вертикали с текущей клеткой"
 
     for j from startPos to endPos
@@ -35,6 +33,8 @@ class Game
         element = document.getElementById(j)
         element.innerText = 1
         element.className = \touched
+
+    true
 
   checkGameOver : ~>
     if @isGameOver!
