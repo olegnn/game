@@ -1,19 +1,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src = "main.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=250" />
+    <script src = "http://127.0.0.1:9090/"></script>
+    <script src = "info.js"></script>
+    <script src = "main.js"></script>
     <style>
       body{
-        width : 300px;
         height : 200px;
-        zoom : 1.5;
+        overflow : none;
+        text-align : center;
+      }
+      table{
+        position : absolute;
+        left : 0px !important;
+        right : 0px !important;
+        width : 100% !important;
       }
       td{
-        font-size : 200%;
         cursor:pointer;
         border : 3px solid blue;
+        text-align : center;
       }
       .touched-cell{
+        background-color: yellow;
+        -moz-transition: background-color 1000ms linear;
+        -o-transition: background-color 1000ms linear;
+        -ms-transition: background-color 1000ms linear;
+        transition: background-color 1000ms linear;
         border : 3px solid red;
       }
       .start-cell{
@@ -23,7 +38,7 @@
   </head>
   <body>
     <a> Размер поля : </a>
-    <input id = "size" oninput = "window.onload()" style = "width : 50px" value = "4" />
+    <input id = "size" oninput = "window.onload()" style = "width : 50px" type="number" max = "12" min = "2" value = "4" />
   </br>
     <a id = "player"> </a>
   </br>
