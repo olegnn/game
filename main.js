@@ -5,15 +5,15 @@
     Game.displayName = 'Game';
     var prototype = Game.prototype, constructor = Game;
     function Game(size){
-      this.size = size != null
-        ? size
-        : typeof size === 'number' && size > 0 ? size : 4;
+      var ref$;
+      this.size = size;
       this.nextTurn = bind$(this, 'nextTurn', prototype);
       this.isGameOver = bind$(this, 'isGameOver', prototype);
       this.checkGameOver = bind$(this, 'checkGameOver', prototype);
       this.canFillCells = bind$(this, 'canFillCells', prototype);
       this.fillCells = bind$(this, 'fillCells', prototype);
       this.selectCell = bind$(this, 'selectCell', prototype);
+      this.size = (ref$ = this.size) === 2 || ref$ === 3 || ref$ === 4 || ref$ === 5 || ref$ === 6 || ref$ === 7 || ref$ === 8 || ref$ === 9 || ref$ === 10 || ref$ === 11 || ref$ === 12 ? size : 4;
       /*
        * data is a vector that contains 0 and 1
        * (if cell is empty => 0 else => 1)

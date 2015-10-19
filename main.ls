@@ -1,6 +1,9 @@
 class Game
 
-  (@size = if typeof size is \number and size > 0 then size else 4) ->
+  (@size) ->
+
+    @size = if @size in [2 to 12] then size else 4
+
     /*
      * data is a vector that contains 0 and 1
      * (if cell is empty => 0 else => 1)
