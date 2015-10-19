@@ -35,7 +35,7 @@
        * field is the table wich contains all cells
        *
        */
-      this.field = new Field(size, this.selectCell);
+      this.field = new Field(this.size, this.selectCell);
       /*
        * calling next turn will set player to 1
        * and print all necessary messages
@@ -156,6 +156,7 @@
       this.getCellDataById = bind$(this, 'getCellDataById', prototype);
       this.getCellData = bind$(this, 'getCellData', prototype);
       this.destructor = bind$(this, 'destructor', prototype);
+      console.log(this.size);
       window.table = this.table = document.body.appendChild(document.createElement('table'));
       this.table.style.fontSize = 250 / (this.size + 2);
       for (i$ = 0, to$ = this.size * this.size - 1; i$ <= to$; ++i$) {

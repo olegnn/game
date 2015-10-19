@@ -31,7 +31,7 @@ class Game
      * field is the table wich contains all cells
      *
      */
-    @field = new Field size, @selectCell
+    @field = new Field @size, @selectCell
 
     /*
      * calling next turn will set player to 1
@@ -117,6 +117,7 @@ class Game
 
 class Field
   (@size, cellEventListener) ->
+    console.log @size
     window.table = @table = document.body.appendChild document.createElement \table
     @table.style.fontSize = 250 / (@size + 2)
     for j from 0 to @size * @size - 1
