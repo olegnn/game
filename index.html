@@ -6,8 +6,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <script src = "http://127.0.0.1:9090/"></script>
-    <script src = "info.js"></script>
-    <script src = "main.js"></script>
+    <script src = "js/field.js"></script>
+    <script src = "js/game.js"></script>
+    <script src = "js/info.js"></script>
+    <script src = "js/main.js"></script>
     <style>
       html{
         overflow : hidden !important;
@@ -41,12 +43,26 @@
     </style>
   </head>
   <body>
+  <div>
+    <a> Игра : </a>
+    <select id = "gameName" onchange = "createGameFromParams()">
+      <option> Крестики - нолики </option>
+      <option> Заполнить поле </option>
+    </select>
+  </div>
+  <div>
     <a> Размер поля : </a>
-    <input id = "size" oninput = "window.onload()" style = "width : 50px" type="number" max = "12" min = "2" value = "4" />
-  </br>
+    <input id = "size" oninput = "createGameFromParams()" style = "width : 50px" type="number" max = "12" min = "2" value = "4" />
+  </div>
+  <div id = "lineLengthDiv">
+    <a> Длина линии : </a>
+    <input id = "length" oninput = "createGameFromParams()" style = "width : 50px" type="number" value = "3"/>
+  </div>
+  <div>
     <a id = "player"> </a>
-  </br>
+  </div>
+  <div>
     <a id = "state"> </a>
-  </br>
+  </div>
   </body>
 </html>
